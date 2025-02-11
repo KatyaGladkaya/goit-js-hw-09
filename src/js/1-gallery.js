@@ -83,33 +83,14 @@ images.forEach((image) => {
   galleryContainer.appendChild(galleryItem);
 });
 
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// // Описаний в документації
-// import SimpleLightbox from "simplelightbox";
-// // Додатковий імпорт стилів
-// import "simplelightbox/dist/simple-lightbox.min.css";
-
-galleryContainer.addEventListener("click", (event) => {
-  event.preventDefault();
-  const clickedImage = event.target.closest("img");
-  if (clickedImage) {
-    console.log(clickedImage);
-  }
-  if (clickedImage) {
-    const largeImageURL = clickedImage.dataset.source;
-    const modal = basicLightbox.create(`
-      <img src="${largeImageURL}" alt="${clickedImage.alt}" />
-    `);
-    modal.show();
-  }
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
 });
-
-
-
-// const lightbox = new SimpleLightbox('.gallery a', {
-//   captionsData: 'alt',
-//   captionDelay: 250
-// });
+console.log("SimpleLightbox")
 
 
 
